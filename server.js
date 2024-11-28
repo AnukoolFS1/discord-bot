@@ -6,7 +6,11 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 const botKey = process.env.Bot_key
 
 client.on("messageCreate", (message) => {
-    console.log(message.content);
+    if(message.author.bot) return;
+    
+    message.reply({
+        content: "Hi this is a bot"
+    })
 })
 
 client.login(botKey)
